@@ -1,0 +1,24 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "\"API for a social network web application where users can share their thoughts, react to friends' thoughts, and create a friend list\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oguerra9/social-network-api.git"
+  },
+  "author": "Olivia Guerra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oguerra9/social-network-api/issues"
+  },
+  "homepage": "https://github.com/oguerra9/social-network-api#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.2",
+    "nodemon": "^2.0.20"
+  }
+}
