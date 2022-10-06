@@ -7,9 +7,9 @@ const cwd = process.cwd();
 const PORT = 3001;
 const app = express();
 
-// const socialNetwork = cwd.includes('social-network-api')
-//     ? cwd.split('/social-network-api/')[1]
-//     : cwd;
+const socialNetwork = cwd.includes('social-network-api')
+    ? cwd.split('/social-network-api/')[1]
+    : cwd;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

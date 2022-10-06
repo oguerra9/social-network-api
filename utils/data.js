@@ -38,6 +38,21 @@ const thoughtTexts = [
   'i am thinking 13...',
   'i am thinking 14...',
   'i am thinking 15...',
+  'i am thinking 16...',
+  'i am thinking 17...',
+  'i am thinking 18...',
+  'i am thinking 19...',
+  'i am thinking 20...',
+  'i am thinking 21...',
+  'i am thinking 22...',
+  'i am thinking 23...',
+  'i am thinking 24...',
+  'i am thinking 25...',
+  'i am thinking 26...',
+  'i am thinking 27...',
+  'i am thinking 28...',
+  'i am thinking 29...',
+  'i am thinking 30...',
 ];
 
 const possibleReactions = [
@@ -92,11 +107,11 @@ const getReactions = (int) => {
   for (let i = 0; i < int; i++) {
     results.push({
       reactionBody: getRandomArrItem(possibleReactions),
-      username: getRandomUsername(),
+      //username: getRandomUsername(),
     });
   }
   return results;
 };
 
 // Export the functions for use in seed.js
-module.exports = { getRandomUsers, getRandomUsername, getRandomThoughts, getRandomThoughts };
+module.exports = { getRandomUsers, getRandomUsername, getRandomThoughts, getReactions };

@@ -63,7 +63,7 @@ thoughtRouter
 thoughtRouter.route('/:thoughtId/reactions').post(addReaction);
 
 // /api/thoughts/:thoughtId/reactions/:reactionId
-thoughtRouter.route('/api/thoughts/:thoughtId/reactions/:reactionId').delete(removeReaction);
+thoughtRouter.route('/:thoughtId/reactions/:reactionId').delete(removeReaction);
 
 
 module.exports = thoughtRouter;
