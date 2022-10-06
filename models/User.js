@@ -43,20 +43,7 @@ const userSchema = new Schema(
                 ref: 'thought',
             },
         ],
-        // friends: [
-        //     {
-        //         type: Schema.Types.ObjectId,
-        //         ref: this,
-        //     }
-        // ]
-        //thoughts: [Thought],
         friends: [this],
-        // friends: [
-        //     {
-        //         type: Schema.Types.ObjectId,
-        //         ref: this,
-        //     },
-        // ],
     },
     {
         toJSON: {
