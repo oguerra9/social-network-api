@@ -13,26 +13,35 @@ connection.once('open', async () => {
     // Drop existing users
     await User.deleteMany({});
 
+    const thoughts = [...getRandomThoughts(20)];
+    console.log(thoughts);
+
+    await Thought.collection.insertMany(thoughts);
+    console.log(thoughts);
+
     const users = [];
-    const thoughts = getRandomThoughts(10);
     const usernames = getUsers();
 
-    for (let i = 0; i < 20; i++) {
-        const thoughts = getRandomThoughts(5);
-        const friends = getRandomUsers(10);
+    console.log(thoughts[0]);
+
+    for (let i = 0; i < 10; i++) {
+        console.log('loop #' + i);
+        const friends = getRandomUsers(3);
         const username = usernames[i];
         const email = `${username}@email.com`;
+        const userThoughts = [thoughts[i*2]._id, thoughts[i*2+1]._id];
 
         users.push({
-            username, 
-            email, 
-            thoughts, 
-            friends,
+            username: username, 
+            email: email, 
+            thoughts: userThoughts, 
+            friends: friends,
         });
+
     }
 
     await User.collection.insertMany(users);
-    await Thought.collection.insertMany(thoughts);
+    // await Thought.collection.insertMany(thoughts);
 
     // loop through the saved thoughts, for each thought, generate a reaction and insert the reactions
     console.table(users);
