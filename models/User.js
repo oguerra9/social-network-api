@@ -1,7 +1,10 @@
 const { Schema, model } = require('mongoose');
+//const Thought = require('./Thought');
+
 /*
 * `username`
   * String
+  * 
   * Unique
   * Required
   * Trimmed
@@ -40,12 +43,14 @@ const userSchema = new Schema(
                 ref: 'Thought',
             },
         ],
-        friends: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User',
-            },
-        ]
+        //thoughts: [Thought],
+        friends: [this],
+        // friends: [
+        //     {
+        //         type: Schema.Types.ObjectId,
+        //         ref: this,
+        //     },
+        // ],
     },
     {
         toJSON: {
