@@ -37,13 +37,15 @@ const { Thought, User } = require('../models');
 */
 
 module.exports = {
+    // GET /api/thoughts
     // get all thoughts
     getThoughts(req, res) {
         Thought.find()
             .then((thoughts) => res.json(thoughts))
             .catch((err) => res.status(500).json(err));
     },
-    // get a single thought
+    // GET /api/thoughts/:thoughtId
+    // get a single thought with thoughtId
     getSingleThought(req,res) {
         Thought.findOne({ _id: req.params.thoughtId })
             .then((thought) => 
@@ -53,6 +55,7 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err));
     },
+    // POST /api/thoughts
     // create a thought
     createThought(req,res) {
         Thought.create(req.body)
@@ -75,6 +78,8 @@ module.exports = {
                 res.status(500).json(err);
             });
     },
+    // PUT /api/thoughts/:thoughtId
+    // update a thought
     updateThought(req,res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
@@ -91,6 +96,8 @@ module.exports = {
                 res.status(500).json(err);
             });
     },
+    // DELETE /api/thoughts/:thoughtId
+    // delete a thought
     deleteThought(req,res) {
         Thought.findOneAndRemove({ _id: req.params.thoughtId })
             .then((thought) => 
@@ -111,6 +118,8 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err));
     },
+    // POST /api/thoughts/:thoughtId/reactions
+    // add a reaction to thought with thoughtID
     addReaction(req,res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
@@ -124,6 +133,8 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err));
     },
+    // DELETE /api/:thoughts/reactions/:reactionId
+    // remove a reaction with reactionID from a thought with thoughtID
     removeReaction(req,res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },

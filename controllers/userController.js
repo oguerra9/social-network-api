@@ -14,11 +14,15 @@ const { User, Thought } = require('../models');
 */
 
 module.exports = {
+  // GET /api/users
+  // get all users
   getUsers(req, res) {
     User.find()
         .then((users) => res.json(users))
         .catch((err) => res.status(500).json(err));
   },
+  // GET /api/users/:userId
+  // get one user
   getSingleUser(req, res) {
       User.findOne({ _id: req.params.userId })
         .select('-__v')
@@ -29,12 +33,15 @@ module.exports = {
         )
         .catch((err) => res.status(500).json(err));
   },
+  // POST /api/users
   // create a new user
   createUser(req, res) {
     User.create(req.body)
-      .then((user) => res.json(user)) //************************************************************************ */
+      .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
+  // PUT /api/users/:userId
+  // update a user
   updateUser(req,res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -51,6 +58,8 @@ module.exports = {
         res.status(500).json(err);
       });
   },
+  // DELETE /api/users/:userId
+  // delete a user
   deleteUser(req,res) {
     User.findOneAndRemove({ _id: req.params.userId })
       .then((user) => 
