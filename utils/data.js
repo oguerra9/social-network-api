@@ -73,15 +73,25 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const getRandomUsername = () =>
   `${getRandomArrItem(usernames)}`;
 
-
+// Used to generate random list of friends
 const getRandomUsers = (int) => {
   let results = [];
   for (let i = 0; i < int; i++) {
-    let username = getRandomArrItem(usernames);
+    let username = getRandomUsername();
     results.push({
       username: username,
       email: `${username}@email.com`,
     });
+  }
+  return results;
+};
+
+
+const getUsers = () => {
+  let results = [];
+  for (let i = 0; i < usernames.length; i++) {
+    //let username = usernames[i];
+    results.push(usernames[i]);
   }
   return results;
 };
@@ -114,4 +124,4 @@ const getReactions = (int) => {
 };
 
 // Export the functions for use in seed.js
-module.exports = { getRandomUsers, getRandomUsername, getRandomThoughts, getReactions };
+module.exports = { getUsers, getRandomUsers, getRandomUsername, getRandomThoughts, getReactions };

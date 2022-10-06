@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const { User, Thought } = require('../models');
-const { getRandomUsers, getRandomUsername, getRandomThoughts, getReactions } = require('./data');
+const { getUsers, getRandomUsers, getRandomUsername, getRandomThoughts, getReactions } = require('./data');
 
 connection.on('error', (err) => err);
 
@@ -15,11 +15,12 @@ connection.once('open', async () => {
 
     const users = [];
     const thoughts = getRandomThoughts(10);
+    const usernames = getUsers();
 
     for (let i = 0; i < 20; i++) {
         const thoughts = getRandomThoughts(5);
         const friends = getRandomUsers(10);
-        const username = getRandomUsername();
+        const username = usernames[i];
         const email = `${username}@email.com`;
 
         users.push({
